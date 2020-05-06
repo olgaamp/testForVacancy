@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'AngularExperiment2';
-}
+  /*page1IsVisible: boolean = true;
+
+  onStep1IsSelectedChanged() {*/
+
+  }
+
