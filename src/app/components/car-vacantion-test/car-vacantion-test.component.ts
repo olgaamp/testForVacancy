@@ -14,6 +14,7 @@ export class CarVacantionTestComponent implements OnInit {
 
   ngOnInit(): void {
     this.car = {
+      isSelected: false,
       title: 'Mercedes',
       id: 1,
       price: 10000,

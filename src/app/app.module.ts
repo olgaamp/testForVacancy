@@ -8,6 +8,8 @@ import { Page1Component } from './components/page1/page1.component';
 import { Page2Component } from './components/page2/page2.component';
 import { PagesNavigationComponent } from './components/pages-navigation/pages-navigation.component';
 import { CarCardComponent } from './components/car-card/car-card.component';
+import { StarComponent } from './components/star/star.component';
+import { StarIconComponent } from './components/star-icon/star-icon.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { CarCardComponent } from './components/car-card/car-card.component';
     Page1Component,
     Page2Component,
     PagesNavigationComponent,
-    CarCardComponent
+    CarCardComponent,
+    StarComponent,
+    StarIconComponent
   ],
   imports: [
     BrowserModule

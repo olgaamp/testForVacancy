@@ -1,10 +1,22 @@
+.containerAll {
+  width: 1150px;
+  margin: 0 auto;
+  /*border: 1px solid red;*/
+}
+
 .container {
+  max-width: 1140px;
   display: inline-flex;
   margin-bottom: 85px;
 }
 
+/*.red {*/
+/*  border: 1px solid red;*/
+/*}*/
+
 .step1Title {
   font-size: 20px;
+  margin-left: 20px;
 }
 
 :host /deep/ .btn-2 .btn-danger.large {
@@ -17,12 +29,17 @@
   border-color: #fafafa;
 }
 
+table {
+  width: 1200px;
+}
+
 .table th {
   border-top: 0px;
 }
 
 tr {
   height: 68px;
+  width: 1200px;
 }
 
 .car-title {

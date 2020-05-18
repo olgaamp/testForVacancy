@@ -1,11 +1,11 @@
-<p class="step1Title">1. Step 1</p>
-<div class="container">
-  <div class="container">
+<div class="containerAll">
+  <p class="step1Title">1. Step 1</p>
+  <div class="container red">
     <app-car-card class="btn-1"></app-car-card>
     <app-car-card class="btn-2"></app-car-card>
     <app-car-card class="btn-3"></app-car-card>
   </div>
-
+  <br>
   <div class="container">
     <table class="table table-striped">
       <tr>
@@ -15,14 +15,20 @@
         <th>Popularity</th>
         <th></th>
       </tr>
-      <tr *ngFor="let car of carsArray">
-        <td class="car-title">{{car.title}}</td>
-        <td>{{car.description}}</td>
-        <td>{{car.price}}</td>
-        <td>{{car.popularity}}</td>
-        <td>
-          <button>Select</button>
-        </td>
+      <tr *ngFor="let car of filteredCarsArray">
+        <ng-container *ngIf="!car.isSelected">
+          <td class="car-title">{{car.title}}</td>
+          <td>{{car.description}}</td>
+          <td>{{car.price}}</td>
+          <td>
+            <app-star
+              [numberOfStars]="car.popularity">
+            </app-star>
+          </td>
+          <td>
+            <button (click)="onSelectCarButtonClick(car)">Select</button>
+          </td>
+        </ng-container>
       </tr>
     </table>
   </div>
