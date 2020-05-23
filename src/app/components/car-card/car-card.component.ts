@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {CarsCollectionStoreService} from '../../cars-collection-store.service';
 import {Car} from '../car-vacantion-test/car';
-import {Observable, Subject} from 'rxjs';
 
 @Component({
   selector: 'app-car-card',
@@ -12,6 +11,7 @@ export class CarCardComponent {
   car: Car;
 
   constructor(service: CarsCollectionStoreService) {
+    this.car = service.cars[0];
     service.car$.subscribe(newCar => {
       this.car = newCar;
     });
