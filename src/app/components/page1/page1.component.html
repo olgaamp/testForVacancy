@@ -16,19 +16,17 @@
         <th></th>
       </tr>
       <tr *ngFor="let car of filteredCarsArray">
-        <ng-container *ngIf="!car.isSelected">
-          <td class="car-title">{{car.title}}</td>
-          <td>{{car.description}}</td>
-          <td>{{car.price}}</td>
-          <td>
-            <app-star
-              [numberOfFilledStars]="car.popularity">
-            </app-star>
-          </td>
-          <td>
-            <button (click)="onSelectCarButtonClick(car)">Select</button>
-          </td>
-        </ng-container>
+        <td class="car-title">{{car.title}}</td>
+        <td>{{car.description}}</td>
+        <td>{{car.price}}</td>
+        <td>
+          <app-star
+            [numberOfFilledStars]="car.popularity">
+          </app-star>
+        </td>
+        <td>
+          <button (click)="onSelectCarButtonClick(car)">Select</button>
+        </td>
       </tr>
     </table>
   </div>
