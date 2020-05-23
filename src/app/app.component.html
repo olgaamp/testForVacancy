@@ -1,8 +1,9 @@
-test
-<app-pages-navigation></app-pages-navigation>
+<app-pages-navigation (onStep1IsSelectedChanged)="onStep1IsSelected($event)"></app-pages-navigation>
 
 <!--<app-page1 *ngIf="page1IsVisible"></app-page1>
 <app-page2 *ngIf="!page1IsVisible"></app-page2>-->
 
-<app-page1></app-page1>
-<app-page2></app-page2>
+<app-page1 *ngIf="showPage1 === true"></app-page1>
+<app-page2 *ngIf="showPage1 !== true"></app-page2>
+
+<!--<router-outlet></router-outlet>-->

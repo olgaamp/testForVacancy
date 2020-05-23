@@ -6,5 +6,5 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./star.component.css']
 })
 export class StarComponent {
-  @Input() numberOfStars: number;
+  @Input() numberOfFilledStars: number;
 }

@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {CarsCollectionStoreService} from '../../cars-collection-store.service';
 import {Car} from '../car-vacantion-test/car';
+import {Observable, Subject} from 'rxjs';
 
 @Component({
   selector: 'app-car-card',
@@ -8,23 +9,11 @@ import {Car} from '../car-vacantion-test/car';
   styleUrls: ['./car-card.component.css']
 })
 export class CarCardComponent {
-  car1: string;
-  service: CarsCollectionStoreService;
+  car: Car;
 
   constructor(service: CarsCollectionStoreService) {
-    this.service = service;
-    this.car1 = 'Cars1';
-    service.subscribe(this);
-  }
-
-  onCarsChanged(componentToCall: any) {
-    //TODO здесь плохо и странно. Надо разобраться почему не this
-    let selectedCar = componentToCall.service.cars.find(function(car: Car) {
-      return car.isSelected;
+    service.car$.subscribe(newCar => {
+      this.car = newCar;
     });
-
-    if (selectedCar !== undefined) {
-      componentToCall.car1 = selectedCar.title;
-    }
   }
 }

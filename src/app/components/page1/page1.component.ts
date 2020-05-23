@@ -9,11 +9,11 @@ import {CarsCollectionStoreService} from '../../cars-collection-store.service';
 })
 export class Page1Component implements OnInit {
   filteredCarsArray: Car[];
-  carsCollectionStoreStore: CarsCollectionStoreService;
+  service: CarsCollectionStoreService;
 
-  constructor(carsCollectionStoreStore: CarsCollectionStoreService) {
-    this.carsCollectionStoreStore = carsCollectionStoreStore;
-    this.filteredCarsArray = this.carsCollectionStoreStore.cars.sort(function(car1, car2) {
+  constructor(service: CarsCollectionStoreService) {
+    this.service = service;
+    this.filteredCarsArray = this.service.cars.sort(function(car1, car2) {
       let car1Name = car1.title.toLowerCase();
       let car2Name = car2.title.toLowerCase();
 
@@ -34,15 +34,25 @@ export class Page1Component implements OnInit {
   }
 
   onSelectCarButtonClick(car: Car) {
-    this.carsCollectionStoreStore.cars.forEach(function(car) {
+    this.setAllCarsIsSelectedFalseExceptSelectedCar(car);
+
+    this.service.putNewCarToPipe(car);
+    this.hideRowWithIsSelectedEqualsTrue();
+  }
+
+  private setAllCarsIsSelectedFalseExceptSelectedCar(car: Car) {
+    this.setAllCarsIsSelectedFalse();
+    car.isSelected = true;
+  }
+
+  private setAllCarsIsSelectedFalse() {
+    this.service.cars.forEach(function(car) {
       car.isSelected = false;
     });
+  }
 
-    car.isSelected = true;
-
-    this.carsCollectionStoreStore.raiseCarsChangedEvent();
-
-    this.filteredCarsArray = this.carsCollectionStoreStore.cars.filter(function(car) {
+  hideRowWithIsSelectedEqualsTrue() {
+    this.filteredCarsArray = this.service.cars.filter(function(car) {
       return !car.isSelected;
     });
   }

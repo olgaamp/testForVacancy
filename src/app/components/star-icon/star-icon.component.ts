@@ -7,10 +7,12 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class StarIconComponent implements OnInit {
   @Input() filled:boolean = true;
+  private a: Set<unknown>;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.a = new Set();
   }
 
 }
