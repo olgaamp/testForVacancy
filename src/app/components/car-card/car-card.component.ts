@@ -11,7 +11,13 @@ export class CarCardComponent {
   car: Car;
 
   constructor(service: CarsCollectionStoreService) {
-    this.car = service.cars[0];
+    let selectedCar = service.cars.find(x => x.isSelected);
+    if (selectedCar === undefined) {
+      this.car = service.cars[0];
+    } else {
+      this.car = selectedCar;
+    }
+
     service.car$.subscribe(newCar => {
       this.car = newCar;
     });
